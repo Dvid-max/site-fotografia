@@ -1,0 +1,18 @@
+<!-- 
+  Pasta /images/
+  ==================
+  Substitua as URLs temporárias do Unsplash nos arquivos HTML
+  pelos caminhos locais desta pasta.
+
+  Exemplo:
+  De:  https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&q=80
+  Para: images/hero-casamento.jpg
+
+  Estrutura sugerida:
+  /images/hero-casamento.jpg
+  /images/hero-sobre.jpg
+  /images/hero-portfolio.jpg
+  /images/galeria-01.jpg
+  /images/galeria-02.jpg
+  ...
+-->
