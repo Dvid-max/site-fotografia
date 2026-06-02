@@ -19,6 +19,7 @@ html {
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
   line-height: 1.7;
   color: var(--color-dark);
   background-color: var(--color-white);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,13 +62,13 @@ select {
 /* --- Variáveis CSS --- */
 :root {
   --color-white: #FFFFFF;
-  --color-cream: #F8F6F2;
-  --color-beige: #EFEAE2;
-  --color-dark: #1A1A1A;
-  --color-gold: #C8A96B;
-  --color-gold-light: #D4BC8A;
-  --color-gray: #6B6B6B;
-  --color-gray-light: #A8A8A8;
+  --color-cream: #EEE9E0;
+  --color-beige: #DDD3C3;
+  --color-dark: #121212;
+  --color-gold: #B9934F;
+  --color-gold-light: #D8BC84;
+  --color-gray: #3E3E3E;
+  --color-gray-light: #6A6A6A;
 
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Outfit', sans-serif;
@@ -84,9 +85,9 @@ select {
   --radius-xl: 40px;
   --radius-full: 9999px;
 
-  --shadow-soft: 0 4px 30px rgba(26, 26, 26, 0.06);
-  --shadow-medium: 0 8px 40px rgba(26, 26, 26, 0.1);
-  --shadow-strong: 0 20px 60px rgba(26, 26, 26, 0.15);
+  --shadow-soft: 0 4px 30px rgba(18, 18, 18, 0.12);
+  --shadow-medium: 0 8px 40px rgba(18, 18, 18, 0.18);
+  --shadow-strong: 0 20px 60px rgba(18, 18, 18, 0.26);
 
   --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -157,7 +158,7 @@ select {
 
 .section__subtitle {
   font-size: clamp(1rem, 2vw, 1.125rem);
-  color: var(--color-gray);
+  color: var(--color-gray-light);
   max-width: 560px;
   line-height: 1.8;
 }
@@ -291,15 +292,23 @@ select {
 }
 
 .header--transparent {
-  background: transparent;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 18, 18, 0.68) 0%,
+    rgba(18, 18, 18, 0.42) 55%,
+    rgba(18, 18, 18, 0.12) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .header--scrolled,
 .header--solid {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.06);
+  box-shadow: 0 1px 0 rgba(18, 18, 18, 0.14);
 }
 
 .header--dark {
@@ -466,9 +475,9 @@ select {
 .hero__overlay--light {
   background: linear-gradient(
     135deg,
-    rgba(248, 246, 242, 0.92) 0%,
-    rgba(248, 246, 242, 0.7) 50%,
-    rgba(248, 246, 242, 0.4) 100%
+    rgba(238, 233, 224, 0.95) 0%,
+    rgba(238, 233, 224, 0.8) 50%,
+    rgba(238, 233, 224, 0.58) 100%
   );
 }
 
@@ -681,6 +690,7 @@ select {
 .feature {
   padding: clamp(2rem, 4vw, 3rem);
   background: var(--color-white);
+  border: 1px solid rgba(18, 18, 18, 0.08);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
   position: relative;
@@ -889,6 +899,7 @@ select {
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-white);
+  border: 1px solid rgba(18, 18, 18, 0.08);
   transition: all var(--transition-base);
 }
 
@@ -1498,6 +1509,7 @@ select {
 
 .testimonial {
   background: var(--color-white);
+  border: 1px solid rgba(18, 18, 18, 0.08);
   border-radius: var(--radius-lg);
   padding: clamp(2rem, 3vw, 2.5rem);
   transition: all var(--transition-base);
@@ -1980,7 +1992,7 @@ select {
     position: absolute;
     top: 0;
     right: 0;
-    width: min(320px, 88vw);
+    width: min(360px, 92vw);
     height: 100vh;
     height: 100dvh;
     background: var(--color-white);
@@ -2025,10 +2037,10 @@ select {
 
   .nav__link {
     display: block;
-    padding: 1rem 0;
+    padding: 1.1rem 0;
     min-height: 44px;
     color: var(--color-dark) !important;
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
     letter-spacing: 0.1em;
   }
 
@@ -2107,7 +2119,7 @@ select {
 @media (max-width: 768px) {
   :root {
     --header-height: 70px;
-    --section-padding: clamp(3rem, 7vw, 5rem);
+    --section-padding: clamp(3.25rem, 8vw, 5.25rem);
   }
 
   .logo__name {
@@ -2133,15 +2145,16 @@ select {
   }
 
   .hero__title {
-    font-size: clamp(2.25rem, 9vw, 3.5rem);
+    font-size: clamp(2.35rem, 9.5vw, 3.7rem);
+    line-height: 1.06;
   }
 
   .hero__content {
-    padding-bottom: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3.5rem, 8vw, 5.5rem);
   }
 
   .hero__content--center {
-    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100svh - var(--header-height));
     min-height: calc(100dvh - var(--header-height));
   }
 
@@ -2274,8 +2287,8 @@ select {
   }
 
   .table-scroll {
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
+    margin-left: 0;
+    margin-right: 0;
     border-radius: var(--radius-md);
   }
 
@@ -2331,6 +2344,7 @@ select {
 
   .social-link {
     justify-content: center;
+    min-height: 50px;
   }
 
   .whatsapp-float {
@@ -2356,21 +2370,51 @@ select {
 /* Smartphone */
 @media (max-width: 480px) {
   :root {
-    --section-padding: clamp(2.5rem, 6vw, 4rem);
+    --section-padding: clamp(2.75rem, 7.5vw, 4.25rem);
   }
 
   .container {
-    padding: 0 1rem;
+    padding: 0 0.9rem;
   }
 
   .header__inner {
-    padding: 0 1rem;
+    padding: 0 0.9rem;
+  }
+
+  .header--transparent,
+  .header--scrolled,
+  .header--solid {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .hero {
+    min-height: 100svh;
+    min-height: 100dvh;
+  }
+
+  .hero__overlay {
+    background: linear-gradient(
+      to top,
+      rgba(18, 18, 18, 0.84) 0%,
+      rgba(18, 18, 18, 0.46) 42%,
+      rgba(18, 18, 18, 0.22) 100%
+    );
+  }
+
+  .hero__text {
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .btn {
     width: 100%;
     justify-content: center;
-    padding: 0.9375rem 1.5rem;
+    min-height: 52px;
+    padding: 0.95rem 1.25rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.11em;
   }
 
   .hero__actions .btn,
@@ -2394,12 +2438,18 @@ select {
   .testimonial,
   .hiring-step,
   .philosophy__item {
-    padding: 1.75rem 1.25rem;
+    padding: 1.6rem 1.15rem;
+    border-radius: 18px;
   }
 
   .plan-card__meta {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .contact-form {
+    padding: 1.35rem 1.1rem;
+    border-radius: 18px;
   }
 
   .testimonial__quote {
@@ -2426,7 +2476,7 @@ select {
   }
 
   .nav {
-    width: 100vw;
+    width: 100%;
   }
 }
 
